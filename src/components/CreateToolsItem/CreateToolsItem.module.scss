@@ -1,0 +1,63 @@
+.PriceAdd {
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+.PriceSum {
+    display: flex;
+    justify-items: center;
+    margin-bottom: 30px;
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: grey; 
+}
+
+.PriceDetailsAdd {
+    display: flex;
+    text-align: center;
+    margin-bottom: 30px;
+    
+    span {
+        width: 10%;
+        margin: 0px 3px 0px;
+        border: 3px solid rgb(255, 192, 75);
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        color: grey;
+    }
+
+    button {
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        color: green;
+        border: 3px solid rgb(255, 192, 75);
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.PriceAddName {
+    width: 35%;
+    margin: 0px 3px 0px;
+    padding: 0%;
+}
+
+.PriceAddAmount, .PriceAddUnit, .PriceUnitSum {
+    width: 14%;
+    margin: 0px 3px 0px;
+    padding: 0%;
+}
+
+button {
+    padding: 6px;
+    background-color: white;
+    color: green;
+    border: 3px solid rgb(255, 192, 75);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}

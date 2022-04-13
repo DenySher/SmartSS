@@ -1,0 +1,13 @@
+.form {
+	max-width: 27rem;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	input {
+		margin-bottom: 1.1rem;
+	}
+	button {
+		max-width: 4rem;
+		margin: auto;
+	}
+}
