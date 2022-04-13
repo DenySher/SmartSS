@@ -1,5 +1,5 @@
-import ProjectDetails from "../../components/ProjectDetails/ProjectDetails"
 import { useParams } from "react-router-dom";
+import ProjectDetails from "../../components/ProjectDetails/ProjectDetails"
 
 const ProjectPage = () => {
 
