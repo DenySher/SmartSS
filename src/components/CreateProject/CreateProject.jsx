@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 
 const CreateProject = () => {
 
-    const [workers, setWorkers] = useState([]);
     const [data, setData] = useState({
         name: '',
         address: '',
@@ -20,23 +19,23 @@ const CreateProject = () => {
     const navigate = useNavigate()
 
     const createProject = () => {
-        apiCreateProject(data.name, data.address).then((res) => {
+        apiCreateProject(data.name, data.address, data.manager).then((res) => {
             navigate(`/project/${res.id}`)
         })
     }
 
-    const selectManager = (value) => {
-        if (value.length > 2) {
+    // const selectManager = (value) => {
+    //     if (value.length > 2) {
             
-        }
-    }
+    //     }
+    // }
 
     return (
         <div className={styles.containerCreateName}>
             <Form>
                 <input placeholder='Наименование стройки' value={data.name} onChange={(e) => setData({...data, name: e.target.value})} />
                 <input placeholder='Адрес стройки' value={data.address} onChange={(e) => setData({...data, address: e.target.value})} />
-                <input placeholder='Прораб' value={data.manager.name} onChange={(e) => selectManager(e.target.value)} />
+                <input placeholder='Прораб' value={data.manager.name} onChange={(e) => setData({...data, manager: e.target.value})} />
                 <Button text='ДОБАВИТЬ ПРОЕКТ' onClick={() => createProject()} />
             </Form>
         </div>
