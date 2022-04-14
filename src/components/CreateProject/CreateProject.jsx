@@ -2,7 +2,6 @@ import {useState} from 'react'
 import Form from '../Form/Form'
 import Button from '../Button/Button'
 import styles from './CreateProject.module.scss'
-import CreatePrice from '../CreatePrice/CreatePrice'
 import { apiCreateProject } from '../../api/projects'
 import { useNavigate } from 'react-router-dom'
 
