@@ -13,3 +13,18 @@
 }
 
 
+.suggestionsContainer {
+    position: relative;
+    .suggestions {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background-color: #f7f7f7;
+        border: 1px solid;
+        .suggestion {
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+}

@@ -18,11 +18,12 @@
    }
 }
 
-input {
-    width: 100%;
-    border: none;
-    text-align: center;
-}
+// TODO: Разобратсья, зачем это было нужно
+// input {
+//     width: 100%;
+//     border: none;
+//     text-align: center;
+// }
 
 .PriceAddPosition {
     width: 1.8rem;
@@ -34,5 +35,29 @@ input {
     text-decoration: none;
     &:hover {
         border: 0.11rem solid green;
+    }
+}
+
+.addItem {
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    position: relative;
+    input {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.suggestions {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background-color: #f7f7f7;
+    border: 1px solid;
+    
+    .suggestion {
+        padding: 10px;
+        cursor: pointer;
     }
 }

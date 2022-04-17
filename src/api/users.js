@@ -14,7 +14,7 @@ export const apiSignIn = async (identifier, password) => {
 
 export const apiSearchUsers = async (name) => {
 	try {
-		const res = await axios.get(`${APIURL}/users?name_contains=${name}`);
+		const res = await axios.get(`${APIURL}/users?_where[name_contains]=${name}`);
 		return res.data;
 	} catch (error) {
 		console.log(error)

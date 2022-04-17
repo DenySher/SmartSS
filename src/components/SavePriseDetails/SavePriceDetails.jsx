@@ -2,28 +2,30 @@ import styles from "./SavePriceDetails.module.scss"
 
 const SavePriceDetails = () => {
     return (
-        <div>
-            <div className={styles.headerPrice}>
-                <span>№</span>
-                <span>Наименование</span>
-                <span>Ед.изм.</span>
-                <span>Кол-во</span>
-                <span>Цена за ед.</span>
-                <span>Кол-во</span>
-                <span>Цена за ед.</span>
-                <span>Всего</span>
-            </div>
-            <div className={styles.savePosition}>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-                <span>{}</span>
-            </div>
-        </div>
+        <table>
+            <thead className={styles.headerPrice}>
+                <tr>
+                    <td>№</td>
+                    <td>Наименование</td>
+                    <td>Ед.изм.</td>
+                    <td>Кол-во</td>
+                    <td>Цена за ед.</td>
+                    <td>Кол-во</td>
+                    <td>Цена за ед.</td>
+                    <td>Всего</td>
+                </tr>
+            </thead>
+            <tbody className={styles.savePosition}>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+                <td>{ }</td>
+            </tbody>
+        </table>
     )
 }
 

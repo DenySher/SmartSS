@@ -19,7 +19,7 @@ export const apiGetProject = async (id) => {
 	}
 };
 
-export const apiCreateProject = async (name, address) => {
+export const apiCreateProject = async (name, address, manager) => {
 	console.log(name)
 
 	try {
@@ -28,7 +28,8 @@ export const apiCreateProject = async (name, address) => {
 			url: `${APIURL}/projects`,
 			data: {
 				name,
-				address
+				address,
+				manager
 			}
 		}
 		const res = await axios(config);
