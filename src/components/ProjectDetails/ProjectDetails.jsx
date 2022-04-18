@@ -6,6 +6,7 @@ import styles from './ProjectDetails.module.scss'
 const ProjectDetails = ({ id }) => {
 
     const [data, setData] = useState(null)
+    const [open, setOpen] = useState(false)
 
     useEffect(() => {
         if (id) {
@@ -15,17 +16,16 @@ const ProjectDetails = ({ id }) => {
         }
     }, [id])
 
+
     return (
         <>
             {data ? (
                 <div className={styles.dataProject}>
                     <div className={styles.dataProjectName}>
                         <div>
-                            <h4>объект:</h4>
                             <h2>{data.name}</h2>
                         </div>
                         <div>
-                            <h4>адрес:</h4>
                             <h4>{data.address}</h4>
                         </div>
                         {data.manager ? (
@@ -36,24 +36,25 @@ const ProjectDetails = ({ id }) => {
                         ) : null}
                     </div>
 
-                    {/* <div className={styles.dataDetailsOpen}>
+                    <div className={styles.dataDetailsOpen}>
                         <h3>Рабочие:</h3>
                         <button>открыть</button>
-                    </div> */}
+                    </div>
                     <div className={styles.dataDetailsOpen}>
                         <h3>Прайс:</h3>
-                        <OpenPrice />
-                        <button>открыть</button>
+                        <button onClick={() => setOpen(true)}>открыть</button>
+                        {open ? 
+                            (<OpenPrice />)
+                        : null }
                     </div>
-                    {/* <div className={styles.dataDetailsOpen}>
+                    <div className={styles.dataDetailsOpen}>
                         <h3>Оборудование:</h3>
                         <button>открыть</button>
                     </div>
                     <div className={styles.dataDetailsOpen}>
                         <h3>Инструмент:</h3>
                         <button>открыть</button>
-                    </div> */}
-
+                    </div>
                 </div>
 
             ) : null}

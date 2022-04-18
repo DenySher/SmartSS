@@ -1,63 +1,57 @@
-.PriceDetailsAdd {
+@import '../../consts/vars.scss';
+
+.selectGrupp {
     display: flex;
-    flex-direction: column;
-}
-
-.PriceDetailsName {
-    margin-top: 1rem;
-    border-bottom: 0.11rem solid rgb(255, 192, 75);
-}
-
-.PriceDetailsNum {
-    display: inline-flex;
-    margin-bottom: 1rem;
-   p {
-       width: 50%;
-       margin: auto;
-       border-bottom: 0.11rem solid rgb(255, 192, 75); 
-   }
-}
-
-// TODO: Разобратсья, зачем это было нужно
-// input {
-//     width: 100%;
-//     border: none;
-//     text-align: center;
-// }
-
-.PriceAddPosition {
-    width: 1.8rem;
-    height: 1.8rem;
-    margin-bottom: 1rem;
-    border: 0.11rem solid rgb(255, 192, 75);
-    border-radius: 50%;
-    font-size: 1.2rem;
-    text-decoration: none;
-    &:hover {
-        border: 0.11rem solid green;
+    max-width: 9%;
+    margin: auto;
+    padding-top: 0.5rem;
+    button {
+        padding: 0.2rem 0.7rem;
+        border: 0.05rem solid $main-border-gold;
+        border-radius: 0.45rem;
+        color: $main-font-black;
+        font-size: 0.89rem;
+        font-weight: bold;
     }
 }
 
 .addItem {
     display: grid;
-    grid-template-columns: 70% 15% 15%;
+    grid-template-columns: 70% 12% 12% 6%;
     position: relative;
     input {
-        width: 100%;
-        max-width: 100%;
+        margin: 0.5rem;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        border-bottom: 0.10rem solid $main-border-gold;
+        border-radius: 0%;
+        text-align: center;
     }
 }
 
 .suggestions {
     position: absolute;
-    top: 40px;
-    left: 0;
+    top: 2.22rem;
+    left: 0rem;
     width: 100%;
-    background-color: #f7f7f7;
-    border: 1px solid;
     
+    background-color: $secondary-background-grey;
     .suggestion {
         padding: 10px;
         cursor: pointer;
     }
 }
+
+.addMore {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.11rem solid $main-border-gold;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    &:hover {
+        border: 0.11rem solid $secondary-border-green;    
+    }
+}
+

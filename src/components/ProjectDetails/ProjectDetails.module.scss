@@ -1,3 +1,5 @@
+@import '../../consts/vars.scss';
+
 .dataProject {
 	// max-width: 27rem;
 	margin: auto;
@@ -11,14 +13,16 @@
 }
 
 .dataProjectName {
-    margin-bottom: 3rem;
-    border: 0.14rem solid rgb(255, 192, 75);
+    width: 25rem;
+    max-width: 27rem;
+    margin: auto;
+    border: 0.14rem solid $main-border-gold;
     border-radius: 0.44rem;
 }
 
 .dataDetailsOpen {
     h3 {
-        border-bottom: 0.11rem solid rgb(255, 192, 75);
+        border-bottom: 0.11rem solid $main-border-gold;
     }
 }
 
@@ -26,11 +30,11 @@ button {
     max-width: 5rem;
     margin: auto;
     border: none;
-    background-color: white;
+    color: $secondary-font-green;
+    background-color: $main-background-white;
     font-size: 0.87rem;
-    color: green;
     &:hover {
-        text-decoration: underline 0.11rem rgb(255, 192, 75);
+        text-decoration: underline 0.11rem $secondary-border-green;
     }
 }
 

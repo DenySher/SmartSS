@@ -6,6 +6,7 @@ import styles from './OpenPrice.module.scss'
 const OpenPrice = () => {
 
     const [data, setData] = useState([])
+    const [open, setOpen] = useState(false)
 
     const [inputs, setInputs] = useState({
         name: '',
@@ -35,9 +36,14 @@ const OpenPrice = () => {
 
         // TODO: 
     }
+    
 
     return (
         <div>
+            <div className={styles.selectGrupp}>
+                <button className={styles.selectSection}>О</button> 
+                <button className={styles.selectSection}>М</button> 
+            </div>
             <div className={styles.addItem}>
                 <input
                     placeholder="Наименование оборудования/материалов"
@@ -46,6 +52,10 @@ const OpenPrice = () => {
                 />
                 <input placeholder="Кол-во" value={inputs.qty} onChange={(e) => setInputs({ ...inputs, qty: e.target.value })} />
                 <input placeholder="Цена за ед." value={inputs.price} onChange={(e) => setInputs({ ...inputs, price: e.target.value })} />
+                <button className={styles.addMore} onClick={() => setOpen(true)}>+</button>
+                {open ? 
+                        (<SavePriceDetails />)
+                        : null }
                 {suggestions.length ? (
                     <div className={styles.suggestions}>
                         {suggestions.map((item, i) => (
@@ -55,26 +65,12 @@ const OpenPrice = () => {
                 ) : null}
                 {newItem ? (
                     <div className={styles.suggestions}>
-                        <span className={styles.suggestion} onClick={() => setNewItem(false)}>Создать {inputs.name}</span>
+                        <span className={styles.suggestion} onClick={() => setNewItem(false)}>добавить: {inputs.name}</span>
                     </div>
                 ) : null}
             </div>
-            <button className={styles.addMore} onClick={() => addItem()}>+</button>
+            <button className={styles.savePrice}>сохранить</button> 
         </div>
-        // <div className={styles.PriceAdd}>
-        //     <div className={styles.PriceDetailsAdd}>
-        //         <div className={styles.PriceDetailsName}>
-        //             <input className={styles.PriceAddName} placeholder="Наименование оборудования/материалов"/>
-        //         </div>
-        //         <div className={styles.PriceDetailsNum}>                
-        //             <p><input placeholder="Кол-во"/></p>
-        //             <p><input placeholder="Цена за ед."/></p>
-        //         </div>
-        //         <button className={styles.PriceAddPosition}> + </button>
-        //     </div>
-        //     <SavePriceDetails />
-        //     <button>СОХРАНИТЬ</button>
-        // </div>
     )
 }
 
