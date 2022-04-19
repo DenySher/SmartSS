@@ -40,10 +40,6 @@ const OpenPrice = () => {
 
     return (
         <div>
-            <div className={styles.selectGrupp}>
-                <button className={styles.selectSection}>О</button> 
-                <button className={styles.selectSection}>М</button> 
-            </div>
             <div className={styles.addItem}>
                 <input
                     placeholder="Наименование оборудования/материалов"

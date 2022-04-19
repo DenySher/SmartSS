@@ -43,10 +43,10 @@ const ProjectDetails = ({ id }) => {
                     <div className={styles.dataDetailsOpen}>
                         <h3>Прайс:</h3>
                         <button onClick={() => setOpen(true)}>открыть</button>
-                        {open ? 
+                    </div>
+                    {open ? 
                             (<OpenPrice />)
                         : null }
-                    </div>
                     <div className={styles.dataDetailsOpen}>
                         <h3>Оборудование:</h3>
                         <button>открыть</button>

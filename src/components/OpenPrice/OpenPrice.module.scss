@@ -1,20 +1,5 @@
 @import '../../consts/vars.scss';
 
-.selectGrupp {
-    display: flex;
-    max-width: 9%;
-    margin: auto;
-    padding-top: 0.5rem;
-    button {
-        padding: 0.2rem 0.7rem;
-        border: 0.05rem solid $main-border-gold;
-        border-radius: 0.45rem;
-        color: $main-font-black;
-        font-size: 0.89rem;
-        font-weight: bold;
-    }
-}
-
 .addItem {
     display: grid;
     grid-template-columns: 70% 12% 12% 6%;
@@ -32,10 +17,9 @@
 
 .suggestions {
     position: absolute;
-    top: 2.22rem;
-    left: 0rem;
-    width: 100%;
-    
+    width: 37rem;
+    top: 2.5rem;
+    left: 0.5rem;
     background-color: $secondary-background-grey;
     .suggestion {
         padding: 10px;
