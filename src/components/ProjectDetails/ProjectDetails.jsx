@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { apiGetProject } from '../../api/projects'
 import OpenPrice from '../OpenPrice/OpenPrice'
+import ProjectPrice from '../ProjectPrice/ProjectPrice'
+import Section from '../Section/Section'
 import styles from './ProjectDetails.module.scss'
 
 const ProjectDetails = ({ id }) => {
@@ -35,28 +37,35 @@ const ProjectDetails = ({ id }) => {
                             </div>
                         ) : null}
                     </div>
-                    <div className={styles.dataDetailsOpen}>
+                    {/* <div className={styles.dataDetailsOpen}>
                         <h3>Рабочие:</h3>
                         <button>открыть</button>
-                    </div>
+                    </div> */}
+
+                    <Section title='название'>
+                        <Section title='aaaa'>
+                            <ProjectPrice />
+                        </Section>
+                    </Section>
+
+
+
                     <div className={styles.dataDetailsOpen}>
                         <h3>Прайс:</h3>
-                        <button onClick={() => setOpen(true)}>открыть</button>
+                        <button onClick={() => setOpen(!open)}>{open ? 'Скрыть' : 'Открыть'}</button>
                     </div>
-                    {open ? 
-                            (<OpenPrice />)
-                        : null }
-                    <div className={styles.dataDetailsOpen}>
+                    <OpenPrice open={open} />
+                    {/* <div className={styles.dataDetailsOpen}>
                         <h3>Оборудование:</h3>
                         <button>открыть</button>
                     </div>
                     <div className={styles.dataDetailsOpen}>
                         <h3>Инструмент:</h3>
                         <button>открыть</button>
-                    </div>
+                    </div> */}
                 </div>
             ) : null}
-            
+
         </>
     )
 }
