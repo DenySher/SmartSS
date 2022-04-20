@@ -35,7 +35,6 @@ const ProjectDetails = ({ id }) => {
                             </div>
                         ) : null}
                     </div>
-
                     <div className={styles.dataDetailsOpen}>
                         <h3>Рабочие:</h3>
                         <button>открыть</button>
@@ -56,9 +55,8 @@ const ProjectDetails = ({ id }) => {
                         <button>открыть</button>
                     </div>
                 </div>
-
             ) : null}
-
+            
         </>
     )
 }

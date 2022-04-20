@@ -1,41 +1,4 @@
 @import '../../consts/vars.scss';
 
-.addItem {
-    display: grid;
-    grid-template-columns: 70% 12% 12% 6%;
-    position: relative;
-    input {
-        margin: 0.5rem;
-        border-left: none;
-        border-top: none;
-        border-right: none;
-        border-bottom: 0.10rem solid $main-border-gold;
-        border-radius: 0%;
-        text-align: center;
-    }
-}
 
-.suggestions {
-    position: absolute;
-    width: 37rem;
-    top: 2.5rem;
-    left: 0.5rem;
-    background-color: $secondary-background-grey;
-    .suggestion {
-        padding: 10px;
-        cursor: pointer;
-    }
-}
-
-.addMore {
-    width: 1.8rem;
-    height: 1.8rem;
-    border: 0.11rem solid $main-border-gold;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    text-decoration: none;
-    &:hover {
-        border: 0.11rem solid $secondary-border-green;    
-    }
-}
 
