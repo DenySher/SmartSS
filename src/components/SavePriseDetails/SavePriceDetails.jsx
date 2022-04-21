@@ -5,7 +5,7 @@ const SavePriceDetails = ({ data }) => {
         <table className={styles.tableContainer}>
             <thead className={styles.headerPrice}>
                 <tr>
-                    <td>№№</td>
+                    <td>№</td>
                     <td>Наименование</td>
                     <td>Ед. изм.</td>
                     <td>Кол-во</td>

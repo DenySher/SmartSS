@@ -3,32 +3,41 @@
 table {
     border-collapse: collapse;
     width: 100%;
+
     td,
     th {
         border: 1px solid #ddd;
         padding: 8px;
-        text-align: left;
-
     }
+
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
     tr:hover {
         background-color: #ddd;
     }
+
     thead {
         background-color: $main-background-gold;
+
         td {
             font-weight: bold;
             text-align: center;
         }
     }
+
     tr {
-        td:first-of-type, td:nth-of-type(4), td:nth-of-type(5), td:nth-of-type(6) {
-            text-align: right;
+        td:first-of-type,
+        td:nth-of-type(3),
+        td:nth-of-type(4),
+        td:nth-of-type(5),
+        td:nth-of-type(6) {
+            text-align: center;
         }
+
         td:nth-of-type(2) {
-            width: 50%;
+            width: 60%;
         }
     }
 }

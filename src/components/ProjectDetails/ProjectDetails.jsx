@@ -24,18 +24,25 @@ const ProjectDetails = ({ id }) => {
             {data ? (
                 <div className={styles.dataProject}>
                     <div className={styles.dataProjectName}>
-                        <div>
-                            <h2>{data.name}</h2>
-                        </div>
-                        <div>
-                            <h4>{data.address}</h4>
-                        </div>
-                        {data.manager ? (
+                        <div className={styles.dataProjectName}>
                             <div>
-                                <h4>прораб:</h4>
-                                <h4>{data.manager.name}</h4>
+                                <h2>{data.name}</h2>
                             </div>
-                        ) : null}
+                            <div>
+                                <h4>{data.address}</h4>
+                            </div>
+                            {data.manager ? (
+                                <div>
+                                    <h4>прораб:</h4>
+                                    <h4>{data.manager.name}</h4>
+                                </div>
+                            ) : null}
+                        </div>
+                        <nav className={styles.dataProjectNav}>
+                            <button className={styles.navBtn}>Прайс</button>
+                            <button className={styles.navBtn}>Снабжение</button>
+                            <button className={styles.navBtn}>Работники</button>
+                        </nav>
                     </div>
                     {/* <div className={styles.dataDetailsOpen}>
                         <h3>Рабочие:</h3>
@@ -47,8 +54,6 @@ const ProjectDetails = ({ id }) => {
                             <ProjectPrice />
                         </Section>
                     </Section>
-
-
 
                     <div className={styles.dataDetailsOpen}>
                         <h3>Прайс:</h3>
@@ -65,7 +70,6 @@ const ProjectDetails = ({ id }) => {
                     </div> */}
                 </div>
             ) : null}
-
         </>
     )
 }

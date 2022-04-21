@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import Button from '../Button/Button'
 import Form from '../Form/Form'
 import styles from './LoginForm.module.scss'
@@ -7,7 +7,7 @@ import { useAppContext } from '../../contexts/AppContext'
 
 const LoginForm = () => {
 
-    const [data, setData] = useState({login: '', password: ''})
+    const [data, setData] = useState({ login: '', password: '' })
     const { setAuth, setUser } = useAppContext();
 
     const startLogin = () => {
@@ -24,19 +24,19 @@ const LoginForm = () => {
             startLogin()
         }
     }
-    
+
     return (
         <div className={styles.containerLogIn}>
             <Form>
-                <input type='text' placeholder="Login" value={data.login} 
-                onChange={(e) => setData({...data, login: e.target.value})} 
-                onKeyPress={onEnterPress}
+                <input type='text' placeholder="Login" value={data.login}
+                    onChange={(e) => setData({ ...data, login: e.target.value })}
+                    onKeyPress={onEnterPress}
                 />
-                <input type='password' placeholder="Password" value={data.password} 
-                onChange={(e) => setData({...data, password: e.target.value})} 
-                onKeyPress={onEnterPress}
+                <input type='password' placeholder="Password" value={data.password}
+                    onChange={(e) => setData({ ...data, password: e.target.value })}
+                    onKeyPress={onEnterPress}
                 />
-                <Button className={styles.btnIn} text='Войти' onClick={startLogin}/>
+                <Button className={styles.btnIn} text='Войти' onClick={startLogin} />
             </Form>
         </div>
     )

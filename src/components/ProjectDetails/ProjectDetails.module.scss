@@ -1,10 +1,11 @@
 @import '../../consts/vars.scss';
 
 .dataProject {
-	margin: auto;
-	display: flex;
-	flex-direction: column;
-    & > div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    &>div {
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -17,34 +18,46 @@
     flex-direction: column;
     justify-content: center;
     width: 25rem;
-    height: 10rem;
+    height: 12rem;
     margin: auto;
-    // border: 0.14rem solid $main-border-gold;
     border-radius: 0.44rem 0.44rem 0rem 0rem;
+    box-shadow: inset 0px 0px 10px rgba(147, 147, 147, 0.5);
+}
+
+.dataProjectNav {
+    display: flex;
+    box-shadow: inset 0px 0px 10px rgba(147, 147, 147, 0.5);
+    padding: 0%;
+    margin: 0%;
+}
+
+.navBtn {
+    width: 33.33%;
+    height: 2rem;
+    padding: 0%;
+    border:  1px solid rgba(147, 147, 147, 0.5);
+    color: black;
+    background-color: $main-border-gold;
     box-shadow: inset 0px 0px 10px rgba(147, 147, 147, 0.5);
 }
 
 .dataDetailsOpen {
     margin: auto;
     width: 25rem;
+
     h3 {
         border-bottom: 0.11rem solid $main-border-gold;
     }
 }
 
 button {
-    max-width: 5rem;
     margin: auto;
     border: none;
     color: $secondary-font-green;
     background-color: $main-background-white;
     font-size: 0.87rem;
+
     &:hover {
         text-decoration: underline 0.11rem $secondary-border-green;
     }
 }
-
-
-
-
-
