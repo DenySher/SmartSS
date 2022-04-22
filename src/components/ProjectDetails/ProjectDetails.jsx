@@ -41,33 +41,21 @@ const ProjectDetails = ({ id }) => {
                         <nav className={styles.dataProjectNav}>
                             <button className={styles.navBtn}>Прайс</button>
                             <button className={styles.navBtn}>Снабжение</button>
-                            <button className={styles.navBtn}>Работники</button>
+                            <button className={styles.navBtn}>Рабочие</button>
                         </nav>
                     </div>
-                    {/* <div className={styles.dataDetailsOpen}>
-                        <h3>Рабочие:</h3>
-                        <button>открыть</button>
-                    </div> */}
 
-                    <Section title='название'>
+                    {/* <Section title='название'>
                         <Section title='aaaa'>
                             <ProjectPrice />
                         </Section>
-                    </Section>
+                    </Section> */}
 
                     <div className={styles.dataDetailsOpen}>
                         <h3>Прайс:</h3>
                         <button onClick={() => setOpen(!open)}>{open ? 'Скрыть' : 'Открыть'}</button>
                     </div>
                     <OpenPrice open={open} />
-                    {/* <div className={styles.dataDetailsOpen}>
-                        <h3>Оборудование:</h3>
-                        <button>открыть</button>
-                    </div>
-                    <div className={styles.dataDetailsOpen}>
-                        <h3>Инструмент:</h3>
-                        <button>открыть</button>
-                    </div> */}
                 </div>
             ) : null}
         </>
