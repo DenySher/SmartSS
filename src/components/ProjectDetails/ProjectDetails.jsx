@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { apiGetProject } from '../../api/projects'
 import OpenPrice from '../OpenPrice/OpenPrice'
-import ProjectPrice from '../ProjectPrice/ProjectPrice'
 import Section from '../Section/Section'
 import styles from './ProjectDetails.module.scss'
 
@@ -39,23 +38,17 @@ const ProjectDetails = ({ id }) => {
                             ) : null}
                         </div>
                         <nav className={styles.dataProjectNav}>
-                            <button className={styles.navBtn}>Прайс</button>
+                            <button className={styles.navBtn} onClick={() => setOpen(!open)}>Прайс</button>
                             <button className={styles.navBtn}>Снабжение</button>
                             <button className={styles.navBtn}>Рабочие</button>
                         </nav>
                     </div>
-
-                    {/* <Section title='название'>
-                        <Section title='aaaa'>
-                            <ProjectPrice />
-                        </Section>
-                    </Section> */}
-
-                    <div className={styles.dataDetailsOpen}>
-                        <h3>Прайс:</h3>
-                        <button onClick={() => setOpen(!open)}>{open ? 'Скрыть' : 'Открыть'}</button>
-                    </div>
                     <OpenPrice open={open} />
+                    {open ?  (
+                        <Section >
+                            
+                        </Section>
+                     ) : null}
                 </div>
             ) : null}
         </>

@@ -1,20 +1,36 @@
 @import '../../consts/vars.scss';
 
-.section {
+.containerSection {
 	width: 100%;
-	.sectionHeader {
-		padding: 10px 20px;
+
+	.section {
+		padding: 0%;
 		width: 100%;
 		display: flex;
-		justify-content: space-between;
 		cursor: pointer;
 		background-color: $secondary-background-grey;
-		.sectionTitle {
-			font-weight: bold;
+
+		input {
+			width: 100%;
+			border: 1px solid $secondary-background-grey;
+			border-radius: 0px;
+			text-align: center;
 		}
 	}
-	.sectionBody {
-		padding: 20px;
-		// & > .section {}
+
+	.subSection {
+		padding: 0%;
+		width: 100%;
+		display: flex;
+		cursor: pointer;
+		background-color: $secondary-background-grey;
+
+		input {
+			width: 100%;
+			border: 1px solid $secondary-background-grey;
+			border-radius: 0px;
+			text-align: center;
+		}
 	}
+
 }

@@ -2,8 +2,9 @@ import styles from './AddBuildingSection.module.scss'
 
 const AddBuildingSection = () => {
     return (
-        <div>
-            <input placeholder='Добавит строительный раздел'></input>
+        <div className={styles.containerAddSection}>
+            <input placeholder='Добавить строительный раздел'></input>
+            <button>+</button>
         </div>
     )
 }

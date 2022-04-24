@@ -1,0 +1,26 @@
+@import '../../consts/vars.scss';
+
+.containerAddSection {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: auto;
+    margin-bottom: 1rem;
+
+    input {
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+
+    button {
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid $main-border-gold;
+        border-radius: 50%;
+        background-color: $main-border-gold;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+

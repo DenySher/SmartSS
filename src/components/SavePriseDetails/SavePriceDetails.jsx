@@ -1,7 +1,9 @@
 import styles from "./SavePriceDetails.module.scss"
+import AddBuildingSection from '../AddBuildingSection/AddBuildingSection'
 
 const SavePriceDetails = ({ data }) => {
     return (
+        <>
         <table className={styles.tableContainer}>
             <thead className={styles.headerPrice}>
                 <tr>
@@ -13,7 +15,18 @@ const SavePriceDetails = ({ data }) => {
                     <td>Всего</td>
                 </tr>
             </thead>
-            {data.length ? (
+            {/* <tbody className={styles.headerPrice}>
+                <tr>
+                    <td><input /></td>
+                    <td><input /></td>
+                    <td><input /></td>
+                    <td><input /></td>
+                    <td><input /></td>
+                    <td><input /></td>
+                </tr>
+            </tbody> */}
+
+            {/* {data.length ? (
                 <tbody className={styles.savePosition}>
                     {data.map((item, idx) => (
                         <tr>
@@ -26,8 +39,10 @@ const SavePriceDetails = ({ data }) => {
                         </tr>
                     ))}
                 </tbody>
-            ) : null}
+            ) : null} */}
         </table>
+
+        </>
     )
 }
 

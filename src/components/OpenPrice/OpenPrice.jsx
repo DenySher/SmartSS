@@ -29,9 +29,9 @@ const OpenPrice = ({ open }) => {
 
     return (
         <div>
-            <AddPositionPrice inputs={inputs} setInputs={setInputs} addItem={addItem} />
+            {/* <AddPositionPrice inputs={inputs} setInputs={setInputs} addItem={addItem} /> */}
             <SavePriceDetails data={data} />
-            <button className={styles.savePrice}>сохранить</button>
+            {/* <button className={styles.savePrice}>сохранить</button> */}
         </div>
     )
 }
