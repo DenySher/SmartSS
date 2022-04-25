@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
 import { apiGetProject } from '../../api/projects'
 import OpenPrice from '../OpenPrice/OpenPrice'
+import ProjectWorkers from '../ProjectWorkers/ProjectWorkers'
 import Section from '../Section/Section'
 import styles from './ProjectDetails.module.scss'
 
 const ProjectDetails = ({ id }) => {
 
     const [data, setData] = useState(null)
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState({
+        sec1: false,
+        sec2: false,
+        sec3: false
+    })
 
     useEffect(() => {
         if (id) {
@@ -38,17 +43,20 @@ const ProjectDetails = ({ id }) => {
                             ) : null}
                         </div>
                         <nav className={styles.dataProjectNav}>
-                            <button className={styles.navBtn} onClick={() => setOpen(!open)}>Прайс</button>
-                            <button className={styles.navBtn}>Снабжение</button>
-                            <button className={styles.navBtn}>Рабочие</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec1: !open.sec1 })}>Прайс</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec2: !open.sec2 })}>Снабжение</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec3: !open.sec3 })}>Рабочие</button>
                         </nav>
                     </div>
-                    <OpenPrice open={open} />
-                    {open ?  (
+                    <OpenPrice open={open.sec1} />
+                    {open.sec1 ? (
                         <Section >
-                            
+
                         </Section>
-                     ) : null}
+                    ) : null}
+                    {open.sec3 ? (
+                        <ProjectWorkers id={data.id} workers={data.workers} />
+                    ) : null}
                 </div>
             ) : null}
         </>

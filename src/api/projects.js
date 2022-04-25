@@ -38,3 +38,19 @@ export const apiCreateProject = async (name, address, manager) => {
 		console.log(error)
 	}
 }
+
+export const apiAddWorkerToProject = async (workers, project) => {
+	try {
+		const config = {
+			method: 'put',
+			url: `${APIURL}/projects/${project}`,
+			data: {
+				workers: workers
+			}
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}

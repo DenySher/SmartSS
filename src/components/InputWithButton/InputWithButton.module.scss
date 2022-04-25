@@ -1,0 +1,15 @@
+.inputWithButton {
+	position: relative;
+	input {
+		width: 100%;
+		max-width: 100%;
+		border: none;
+		text-align: left;
+	}
+	button {
+		position: absolute;
+		right: 10px;
+		top: 0;
+		height: 100%;
+	}
+}
