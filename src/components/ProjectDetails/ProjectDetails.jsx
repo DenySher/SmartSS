@@ -23,6 +23,7 @@ const ProjectDetails = ({ id }) => {
     }, [id])
 
 
+
     return (
         <>
             {data ? (
@@ -43,12 +44,13 @@ const ProjectDetails = ({ id }) => {
                             ) : null}
                         </div>
                         <nav className={styles.dataProjectNav}>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec1: !open.sec1 })}>Прайс</button>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec2: !open.sec2 })}>Снабжение</button>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec3: !open.sec3 })}>Рабочие</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec1: !open.sec1, sec2: null, sec3: null})}>Прайс</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec2: !open.sec2, sec1: null, sec3: null})}>Снабжение</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec3: !open.sec3, sec1: null, sec2: null})}>Рабочие</button>
                         </nav>
                     </div>
                     <OpenPrice open={open.sec1} />
+                    
                     {open.sec1 ? (
                         <Section >
 

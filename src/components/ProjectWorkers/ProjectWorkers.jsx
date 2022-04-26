@@ -50,12 +50,6 @@ const ProjectWorkers = ({ id, workers }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{data.length && data.map((worker, idx) => (
-					<tr key={idx}>
-						<td>{idx + 1}</td>
-						<td>{worker.name}</td>
-					</tr>
-				))}
 				<tr>
 					<td>
 
@@ -72,6 +66,13 @@ const ProjectWorkers = ({ id, workers }) => {
 						/>
 					</td>
 				</tr>
+				{data.length && data.map((worker, idx) => (
+					<tr key={idx}>
+						<td>{idx + 1}</td>
+						<td>{worker.name}</td>
+					</tr>
+				))}
+
 			</tbody>
 		</table>
 	)
