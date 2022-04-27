@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { apiGetProjects } from '../../api/projects';
 import ProjectCard from '../ProjectCard/ProjectCard';
-import styles from './Works.module.scss'
+import styles from './ProjectsGrid.module.scss'
 
-const Works = () => {
+const ProjectsGrid = () => {
 
     const [data, setData] = useState([]);
 
@@ -22,4 +22,4 @@ const Works = () => {
     )
 }
 
-export default Works
+export default ProjectsGrid

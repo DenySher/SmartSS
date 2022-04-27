@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import Form from '../Form/Form'
-import Button from '../Button/Button'
 import styles from './CreateProject.module.scss'
 import { apiCreateProject } from '../../api/projects'
 import { useNavigate } from 'react-router-dom'
 import { apiSearchUsers } from '../../api/users'
+import Button from '../Common/Button/Button'
 
 const CreateProject = () => {
 

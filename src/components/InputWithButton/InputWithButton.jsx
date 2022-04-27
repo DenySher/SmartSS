@@ -6,7 +6,7 @@ const InputWithButton = ({ value, setValue, placeholder, buttonText, onClick, su
 		<div className={styles.inputWithButton}>
 			<input placeholder={placeholder} value={value} onChange={e => setValue(e.target.value)} />
 			<button onClick={onClick}>{buttonText}</button>
-			<InputSuggestions suggestions={suggestions} select={select} />
+			{suggestions && select && <InputSuggestions suggestions={suggestions} select={select} />}
 		</div>
 	)
 }

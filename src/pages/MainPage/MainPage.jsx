@@ -1,9 +1,9 @@
-import Works from "../../components/Works/Works"
+import ProjectsGrid from "../../components/ProjectsGrid/ProjectsGrid"
 
 const MainPage = () => {
 	return (
 		<div>
-			<Works />
+			<ProjectsGrid />
 		</div>
 	)
 }

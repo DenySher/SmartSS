@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { apiGetProject } from '../../api/projects'
-import OpenPrice from '../OpenPrice/OpenPrice'
+import ProjectPrice from '../ProjectPrice/ProjectPrice'
 import ProjectWorkers from '../ProjectWorkers/ProjectWorkers'
-import Section from '../Section/Section'
 import styles from './ProjectDetails.module.scss'
 
 const ProjectDetails = ({ id }) => {
@@ -22,7 +21,11 @@ const ProjectDetails = ({ id }) => {
         }
     }, [id])
 
-
+    const updateData = (newData) => {
+        if (newData) {
+            setData(newData)
+        }
+    }
 
     return (
         <>
@@ -44,13 +47,14 @@ const ProjectDetails = ({ id }) => {
                             ) : null}
                         </div>
                         <nav className={styles.dataProjectNav}>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec1: !open.sec1, sec2: null, sec3: null})}>Прайс</button>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec2: !open.sec2, sec1: null, sec3: null})}>Снабжение</button>
-                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec3: !open.sec3, sec1: null, sec2: null})}>Рабочие</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec1: !open.sec1, sec2: null, sec3: null })}>Прайс</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec2: !open.sec2, sec1: null, sec3: null })}>Снабжение</button>
+                            <button className={styles.navBtn} onClick={() => setOpen({ ...open, sec3: !open.sec3, sec1: null, sec2: null })}>Рабочие</button>
                         </nav>
                     </div>
-                    <OpenPrice open={open.sec1} />
-                    
+                    {open.sec1 ? (
+                        <ProjectPrice sections={data.sections} projectID={data.id} updateData={updateData} />
+                    ) : null}
                     {open.sec3 ? (
                         <ProjectWorkers id={data.id} workers={data.workers} />
                     ) : null}

@@ -1,7 +1,7 @@
 import { useAppContext } from '../../contexts/AppContext';
 import cookieCutter from "cookie-cutter";
 import styles from './UserName.module.scss'
-import Button from '../Button/Button';
+import Button from '../Common/Button/Button';
 
 const UserName = () => {
 
@@ -20,7 +20,7 @@ const UserName = () => {
                     <span className={styles.u}>{user?.username}</span>
                     <Button onClick={() => signOut()} text='Выйти' />
                 </div>
-                ) : (
+            ) : (
                 <span className={styles.u}>user</span>
             )}
         </div>

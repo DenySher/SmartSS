@@ -32,12 +32,14 @@ const ProjectWorkers = ({ id, workers }) => {
 				setInput('');
 			})
 		} else {
-			apiCreateWorker(input).then((res) => {
-				apiAddWorkerToProject([...data, res.id], id).then((r) => {
-					setData(r.workers);
-					setInput('');
+			if (input.length > 1) {
+				apiCreateWorker(input).then((res) => {
+					apiAddWorkerToProject([...data, res.id], id).then((r) => {
+						setData(r.workers);
+						setInput('');
+					})
 				})
-			})
+			}
 		}
 	}
 
