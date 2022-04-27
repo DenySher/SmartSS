@@ -51,11 +51,6 @@ const ProjectDetails = ({ id }) => {
                     </div>
                     <OpenPrice open={open.sec1} />
                     
-                    {open.sec1 ? (
-                        <Section >
-
-                        </Section>
-                    ) : null}
                     {open.sec3 ? (
                         <ProjectWorkers id={data.id} workers={data.workers} />
                     ) : null}

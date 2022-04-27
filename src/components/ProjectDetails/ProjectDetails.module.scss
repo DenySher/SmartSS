@@ -56,8 +56,4 @@ button {
     color: $secondary-font-green;
     background-color: $main-background-white;
     font-size: 0.87rem;
-
-    &:hover {
-        text-decoration: underline 0.11rem $secondary-border-green;
-    }
 }
