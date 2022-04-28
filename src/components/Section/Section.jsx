@@ -10,7 +10,7 @@ const Section = ({ num, section }) => {
 		<>
 			<tr className={styles.childrenSection} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
-				<td colSpan="5">{section.name}</td>
+				<td colSpan="5">Раздел: {section.name}</td>
 			</tr>
 			{open && section && section.sections && section.sections.map((section, idx) => (
 				<Subsection num={`${num}.${idx + 1}`} subsection={section} />
