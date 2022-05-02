@@ -18,11 +18,11 @@ function App() {
         {auth ? (
           <Routes>
             <Route path='/' element={<MainPage />} />
-            <Route path='/project/:id' element={<ProjectPage/>} />
+            <Route path='/project/:id' element={<ProjectPage />} />
             <Route path='create' element={<CreateProjectPage />} />
           </Routes>
         ) : (
-            <LoginPage />
+          <LoginPage />
         )}
       </div>
     </div>

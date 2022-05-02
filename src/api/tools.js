@@ -26,6 +26,54 @@ export const apiCreateSection = async (name) => {
 	}
 }
 
+export const apiCreateTool = async (name) => {
+	try {
+		const config = {
+			method: 'post',
+			url: `${APIURL}/tools`,
+			data: {
+				name
+			}
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const apiAddToolsToSubsection = async (sectionID, sections) => {
+	try {
+		const config = {
+			method: 'put',
+			url: `${APIURL}/sections/${sectionID}`,
+			data: {
+				sections
+			}
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const apiCreateSubection = async (sectionID, sections) => {
+	try {
+		const config = {
+			method: 'put',
+			url: `${APIURL}/sections/${sectionID}`,
+			data: {
+				sections
+			}
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 export const apiAddSectionToProject = async (sections, project) => {
 	try {
 		const config = {

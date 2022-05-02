@@ -56,7 +56,7 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     ))}
                 </tbody>
             </table>
-            <button>SAVE</button>
+            {/* <button>SAVE</button> */}
         </>
     )
 }
