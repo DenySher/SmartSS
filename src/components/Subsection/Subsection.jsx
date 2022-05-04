@@ -58,10 +58,10 @@ const Subsection = ({ num, subsection, section, idx, updateData }) => {
 				<td colSpan="1">{num}</td>
 				<td colSpan="5">{subsection.name}</td>
 			</tr>
+			{open && <AddPositionPrice inputs={addValue} setInputs={setAddValue} addItem={addTool} />}
 			{open && subsection && subsection.tools && subsection.tools.map((tool, idx) => (
 				<SectionTool key={`tool${idx}`} num={`${num}.${idx + 1}`} tool={tool} />
 			))}
-			{open && <AddPositionPrice inputs={addValue} setInputs={setAddValue} addItem={addTool} />}
 		</>
 	)
 }
