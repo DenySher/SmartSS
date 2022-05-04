@@ -8,7 +8,10 @@ export function AppWrapper({ children }) {
 
     const [auth, setAuth] = useState(false);
     const [user, setUser] = useState(null);
-    const [modalVisible, setModalVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState({
+        modalFirstSection: false,
+        modalSubSection: false,
+    })
 
     useEffect(() => {
         const token = cookieCutter.get("ourToken");

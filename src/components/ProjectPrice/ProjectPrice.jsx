@@ -13,11 +13,6 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
     const { setModalVisible } = useAppContext();
 
-    // const onEnterPress = (e) => {
-    //     if (e.code === 'Enter') {
-    //         onAddTask()
-    //     }
-    // }
 
     const onAddTask = () => {
         if (addValue.length > 2) {
@@ -44,27 +39,26 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td colSpan="6" className={styles.inputWithBtn}>
-                            <InputWithButton
-                                placeholder='Строительный раздел'
-                                value={addValue}
-                                setValue={setAddValue}
-                                buttonText='Добавить'
-                                onClick={() => onAddTask()}
-                            />
-                        </td>
-                    </tr>
+
                     {sections && sections.map((section, idx) => (
                         <Section key={`section${idx}`} num={idx + 1} section={section} />
                     ))}
                 </tbody>
             </table>
-            <button onClick={() => setModalVisible(true)}>показать модалку</button>
+            <button onClick={() => setModalVisible(true)}>Добавить раздел</button>
+            
             <Modal>
-                <div><h1>modal window</h1></div>
+                <InputWithButton
+                    placeholder='Добавить строительный раздел'
+                    value={addValue}
+                    setValue={setAddValue}
+                    buttonText='Добавить'
+                    onClick={() => onAddTask()}
+                />
             </Modal>
-            {/* <button>SAVE</button> */}
+
+    
+            
         </>
     )
 }

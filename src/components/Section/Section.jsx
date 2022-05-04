@@ -3,6 +3,8 @@ import { apiCreateSubection } from '../../api/tools'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import Subsection from '../Subsection/Subsection'
 import styles from './Section.module.scss'
+import Modal from '../Modal/Modal'
+import { useAppContext } from '../../contexts/AppContext'
 
 const Section = ({ num, section }) => {
 
@@ -10,6 +12,8 @@ const Section = ({ num, section }) => {
 	const [data, setData] = useState(section)
 
 	const [addValue, setAddValue] = useState('')
+
+	const { setModalVisible } = useAppContext();
 
 	const onAddTask = () => {
 		if (addValue.length > 2) {
@@ -52,6 +56,8 @@ const Section = ({ num, section }) => {
 			{open && data && data.sections && data.sections.map((section, idx) => (
 				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
 			))}
+
+			
 		</>
 	)
 }
