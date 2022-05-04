@@ -7,8 +7,9 @@ const AppContext = createContext();
 export function AppWrapper({ children }) {
 
     const [auth, setAuth] = useState(false);
-	const [user, setUser] = useState(null);
-	
+    const [user, setUser] = useState(null);
+    const [modalVisible, setModalVisible] = useState(false)
+
     useEffect(() => {
         const token = cookieCutter.get("ourToken");
         if (token) {
@@ -29,13 +30,15 @@ export function AppWrapper({ children }) {
                 }
             });
         }
-	}, []);
-	
+    }, []);
+
     const state = {
         auth,
-		setAuth,
-		user,
-		setUser
+        setAuth,
+        user,
+        setUser,
+        modalVisible,
+        setModalVisible
     };
 
     return (

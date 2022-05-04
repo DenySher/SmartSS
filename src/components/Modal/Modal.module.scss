@@ -1,0 +1,21 @@
+
+@import "../../consts/vars.scss";
+
+.modal {
+	position: fixed;
+	width: 600px;
+	height: 600px;
+	left: calc(50% - 300px);
+	top: calc(50% - 300px);
+	background-color: $main-background-white;
+	z-index: 100;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.5);
+}

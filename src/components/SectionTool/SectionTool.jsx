@@ -1,5 +1,3 @@
-import styles from './SectionTool.module.scss'
-
 const SectionTool = ({ num, tool }) => {
 	return (
 		<tr>

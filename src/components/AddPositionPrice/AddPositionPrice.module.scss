@@ -9,6 +9,10 @@
     .suggestion {
         padding: 10px;
         cursor: pointer;
+        display: block;
+        &:hover {
+            background-color: $main-background-white;
+        }
     }
 }
 
