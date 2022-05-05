@@ -13,7 +13,7 @@ const Section = ({ num, section }) => {
 
 	const [addValue, setAddValue] = useState('')
 
-	const { setModalVisible } = useAppContext();
+	const { modalVisible, setModalVisible } = useAppContext()
 
 	const onAddTask = () => {
 		if (addValue.length > 2) {
@@ -42,6 +42,7 @@ const Section = ({ num, section }) => {
 				<td colSpan="1">{num}</td>
 				<td colSpan="5">Раздел: {section.name}</td>
 			</tr>
+		{/* 			
 			{open && <tr>
 				<td colSpan="6" className={styles.inputWithBtn}>
 					<InputWithButton
@@ -52,10 +53,24 @@ const Section = ({ num, section }) => {
 						onClick={() => onAddTask()}
 					/>
 				</td>
-			</tr>}
+			</tr>} */}
 			{open && data && data.sections && data.sections.map((section, idx) => (
 				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
 			))}
+			
+			<button onClick={() => setModalVisible({...modalVisible, sec2: !modalVisible.sec2})}>Добавить подраздел</button>
+			
+			{modalVisible.sec2 ? (
+            <Modal>
+                <InputWithButton
+                    placeholder='Добавить подраздел'
+                    value={addValue}
+                    setValue={setAddValue}
+                    buttonText='Добавить'
+                    onClick={() => onAddTask()}
+                />
+            </Modal>
+            ) : null}
 
 			
 		</>

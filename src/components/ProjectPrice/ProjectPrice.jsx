@@ -11,8 +11,7 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
     const [addValue, setAddValue] = useState('')
 
-    const { setModalVisible } = useAppContext();
-
+    const { modalVisible, setModalVisible } = useAppContext()
 
     const onAddTask = () => {
         if (addValue.length > 2) {
@@ -45,8 +44,10 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     ))}
                 </tbody>
             </table>
-            <button onClick={() => setModalVisible(true)}>Добавить раздел</button>
-            
+
+            <button onClick={() => setModalVisible({...modalVisible, sec1: !modalVisible.sec1})}>Добавить раздел</button>
+
+            {modalVisible.sec1 ? (
             <Modal>
                 <InputWithButton
                     placeholder='Добавить строительный раздел'
@@ -56,9 +57,8 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     onClick={() => onAddTask()}
                 />
             </Modal>
+            ) : null}
 
-    
-            
         </>
     )
 }
