@@ -5,6 +5,8 @@ import Subsection from '../Subsection/Subsection'
 import styles from './Section.module.scss'
 import Modal from '../Modal/Modal'
 import { useAppContext } from '../../contexts/AppContext'
+import UpArrow from '../assets/Up-arrow.svg'
+import DownArrow from '../assets/Down-arrow.svg'
 
 const Section = ({ num, section }) => {
 
@@ -40,7 +42,12 @@ const Section = ({ num, section }) => {
 		<>
 			<tr className={styles.childrenSection} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
-				<td colSpan="5">Раздел: {section.name}</td>
+				<td className={styles.nameSection} colSpan="5"> 
+					<h4> 
+						<span className={styles.paragraph}>Раздел:</span> <h4>{section.name}</h4> 
+						{open ? <img src={UpArrow}/> : <img src={DownArrow}/>} 
+					</h4> 
+				</td>
 			</tr>
 		{/* 			
 			{open && <tr>
@@ -58,8 +65,8 @@ const Section = ({ num, section }) => {
 				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
 			))}
 			
-			<button onClick={() => setModalVisible({...modalVisible, sec2: !modalVisible.sec2})}>Добавить подраздел</button>
-			
+			{/* <button onClick={() => setModalVisible({...modalVisible, sec2: !modalVisible.sec2})}>Добавить подраздел</button>
+			 */}
 			{modalVisible.sec2 ? (
             <Modal>
                 <InputWithButton

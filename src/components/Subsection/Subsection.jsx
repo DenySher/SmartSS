@@ -3,6 +3,8 @@ import { apiAddToolsToSubsection, apiCreateTool } from '../../api/tools'
 import AddPositionPrice from '../AddPositionPrice/AddPositionPrice'
 import SectionTool from '../SectionTool/SectionTool'
 import styles from './Section.module.scss'
+import UpArrow from '../assets/Up-arrow.svg'
+import DownArrow from '../assets/Down-arrow.svg'
 
 const Subsection = ({ num, subsection, section, idx, updateData }) => {
 
@@ -56,7 +58,11 @@ const Subsection = ({ num, subsection, section, idx, updateData }) => {
 		<>
 			<tr className={styles.childrenSection} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
-				<td colSpan="5">{subsection.name}</td>
+				<td colSpan="5" className={styles.nameSubSection}>
+					<p className={styles.subSectionP}> 
+						<h5>{subsection.name}</h5> {open ? <img src={UpArrow}/>: <img src={DownArrow}/> } 
+					</p>
+				</td>
 			</tr>
 			{open && <AddPositionPrice inputs={addValue} setInputs={setAddValue} addItem={addTool} />}
 			{open && subsection && subsection.tools && subsection.tools.map((tool, idx) => (
