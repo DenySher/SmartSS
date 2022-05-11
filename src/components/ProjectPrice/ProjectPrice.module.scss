@@ -19,7 +19,9 @@
 
     thead {
         background-color: $main-background-gold;
-
+        position: sticky;
+        top: 0;
+        z-index: 10;
         td {
             font-weight: bold;
             text-align: center !important;

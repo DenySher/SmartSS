@@ -3,29 +3,27 @@ import { apiCreateSubection } from '../../api/tools'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import Subsection from '../Subsection/Subsection'
 import styles from './Section.module.scss'
-import Modal from '../Modal/Modal'
-import { useAppContext } from '../../contexts/AppContext'
-import UpArrow from '../assets/Up-arrow.svg'
-import DownArrow from '../assets/Down-arrow.svg'
+import Icon from '../Icon/Icon'
+import ButtonAction from '../Common/ButtonAction/ButtonAction'
 
-const Section = ({ num, section }) => {
+const Section = ({ num, section, deleteSection }) => {
 
 	const [open, setOpen] = useState(false)
 	const [data, setData] = useState(section)
 
 	const [addValue, setAddValue] = useState('')
 
-	const { modalVisible, setModalVisible } = useAppContext()
 
 	const onAddTask = () => {
 		if (addValue.length > 2) {
 			apiCreateSubection(
 				section.id,
 				[
-					...section.sections,
+					...data.sections,
 					{ name: addValue }
 				]
 			).then((res) => {
+				console.log(res);
 				setAddValue('')
 				setData(res)
 			})
@@ -40,16 +38,21 @@ const Section = ({ num, section }) => {
 
 	return (
 		<>
-			<tr className={styles.childrenSection} onClick={() => setOpen(!open)}>
+			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
-				<td className={styles.nameSection} colSpan="5"> 
-					<h4> 
-						<span className={styles.paragraph}>Раздел:</span> <h4>{section.name}</h4> 
-						{open ? <img src={UpArrow}/> : <img src={DownArrow}/>} 
-					</h4> 
+				<td colSpan="5">
+					<div className={styles.nameSection}>
+						<div>
+							<h4>{section.name}</h4>
+							<div className={styles.actionButtons}>
+								<ButtonAction icon='pencil' onClick={() => alert('удалить?')} />
+								<ButtonAction icon='trash' onClick={() => deleteSection(section.id)} />
+							</div>
+						</div>
+						<Icon icon={open ? 'chevron-up' : 'chevron-down'} size={18} color={open ? 'white' : 'black'} />
+					</div>
 				</td>
 			</tr>
-		{/* 			
 			{open && <tr>
 				<td colSpan="6" className={styles.inputWithBtn}>
 					<InputWithButton
@@ -60,26 +63,26 @@ const Section = ({ num, section }) => {
 						onClick={() => onAddTask()}
 					/>
 				</td>
-			</tr>} */}
+			</tr>}
 			{open && data && data.sections && data.sections.map((section, idx) => (
 				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
 			))}
-			
-			{/* <button onClick={() => setModalVisible({...modalVisible, sec2: !modalVisible.sec2})}>Добавить подраздел</button>
-			 */}
-			{modalVisible.sec2 ? (
-            <Modal>
-                <InputWithButton
-                    placeholder='Добавить подраздел'
-                    value={addValue}
-                    setValue={setAddValue}
-                    buttonText='Добавить'
-                    onClick={() => onAddTask()}
-                />
-            </Modal>
-            ) : null}
 
-			
+			{/* <button onClick={() => setModalVisible({ ...modalVisible, sec2: !modalVisible.sec2 })}>Добавить подраздел</button> */}
+
+			{/* {modalVisible.sec2 ? (
+				<Modal>
+					<InputWithButton
+						placeholder='Добавить подраздел'
+						value={addValue}
+						setValue={setAddValue}
+						buttonText='Добавить'
+						onClick={() => onAddTask()}
+					/>
+				</Modal>
+			) : null} */}
+
+
 		</>
 	)
 }

@@ -3,9 +3,10 @@ import { useState } from 'react'
 import styles from "./ProjectPrice.module.scss"
 import Section from '../Section/Section'
 import InputWithButton from '../InputWithButton/InputWithButton'
-import { apiAddSectionToProject, apiCreateSection } from '../../api/tools'
+import { apiAddSectionToProject, apiCreateSection, apiDeleteSection } from '../../api/tools'
 import Modal from '../Modal/Modal'
 import { useAppContext } from '../../contexts/AppContext'
+import { apiGetProject } from '../../api/projects'
 
 const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
@@ -24,6 +25,14 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
         }
     }
 
+    const deleteSection = (id) => {
+        apiDeleteSection(id).then(res => {
+            apiGetProject(projectID).then(r => {
+                updateData(r)
+            })
+        })
+    }
+
     return (
         <>
             <table className={styles.projectPriceTable}>
@@ -38,25 +47,24 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     </tr>
                 </thead>
                 <tbody>
-
                     {sections && sections.map((section, idx) => (
-                        <Section key={`section${idx}`} num={idx + 1} section={section} />
+                        <Section key={`section${idx}`} num={idx + 1} section={section} deleteSection={deleteSection} />
                     ))}
                 </tbody>
             </table>
 
-            <button onClick={() => setModalVisible({...modalVisible, sec1: !modalVisible.sec1})}>Добавить раздел</button>
+            <button onClick={() => setModalVisible({ ...modalVisible, sec1: !modalVisible.sec1 })}>Добавить раздел</button>
 
             {modalVisible.sec1 ? (
-            <Modal>
-                <InputWithButton
-                    placeholder='Добавить строительный раздел'
-                    value={addValue}
-                    setValue={setAddValue}
-                    buttonText='Добавить'
-                    onClick={() => onAddTask()}
-                />
-            </Modal>
+                <Modal>
+                    <InputWithButton
+                        placeholder='Добавить строительный раздел'
+                        value={addValue}
+                        setValue={setAddValue}
+                        buttonText='Добавить'
+                        onClick={() => onAddTask()}
+                    />
+                </Modal>
             ) : null}
 
         </>

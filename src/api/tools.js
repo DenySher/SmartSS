@@ -89,3 +89,16 @@ export const apiAddSectionToProject = async (sections, project) => {
 		console.log(error)
 	}
 }
+
+export const apiDeleteSection = async (id) => {
+	try {
+		const config = {
+			method: 'delete',
+			url: `${APIURL}/sections/${id}`
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
