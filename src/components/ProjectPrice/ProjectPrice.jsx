@@ -4,15 +4,11 @@ import styles from "./ProjectPrice.module.scss"
 import Section from '../Section/Section'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import { apiAddSectionToProject, apiCreateSection, apiDeleteSection } from '../../api/tools'
-import Modal from '../Modal/Modal'
-import { useAppContext } from '../../contexts/AppContext'
 import { apiGetProject } from '../../api/projects'
 
 const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
     const [addValue, setAddValue] = useState('')
-
-    const { modalVisible, setModalVisible } = useAppContext()
 
     const onAddTask = () => {
         if (addValue.length > 2) {
@@ -47,26 +43,22 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td colSpan="6" className={styles.inputWithBtn}>
+                            <InputWithButton
+                                placeholder='Добавить раздел'
+                                value={addValue}
+                                setValue={setAddValue}
+                                buttonText='Добавить'
+                                onClick={() => onAddTask()}
+                            />
+                        </td>
+                    </tr>
                     {sections && sections.map((section, idx) => (
                         <Section key={`section${idx}`} num={idx + 1} section={section} deleteSection={deleteSection} />
                     ))}
                 </tbody>
             </table>
-
-            <button onClick={() => setModalVisible({ ...modalVisible, sec1: !modalVisible.sec1 })}>Добавить раздел</button>
-
-            {modalVisible.sec1 ? (
-                <Modal>
-                    <InputWithButton
-                        placeholder='Добавить строительный раздел'
-                        value={addValue}
-                        setValue={setAddValue}
-                        buttonText='Добавить'
-                        onClick={() => onAddTask()}
-                    />
-                </Modal>
-            ) : null}
-
         </>
     )
 }

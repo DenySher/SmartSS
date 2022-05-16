@@ -3,9 +3,8 @@ import { apiAddToolsToSubsection, apiCreateTool } from '../../api/tools'
 import AddPositionPrice from '../AddPositionPrice/AddPositionPrice'
 import SectionTool from '../SectionTool/SectionTool'
 import styles from './Section.module.scss'
-import UpArrow from '../assets/Up-arrow.svg'
-import DownArrow from '../assets/Down-arrow.svg'
 import Icon from '../Icon/Icon'
+import ButtonAction from '../Common/ButtonAction/ButtonAction'
 
 const Subsection = ({ num, subsection, section, idx, updateData }) => {
 
@@ -57,11 +56,15 @@ const Subsection = ({ num, subsection, section, idx, updateData }) => {
 
 	return (
 		<>
-			<tr className={styles.childrenSection} onClick={() => setOpen(!open)}>
+			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
 				<td colSpan="5">
 					<div className={styles.nameSection}>
 						<h5>{subsection.name}</h5>
+							<div className={styles.actionButtons}>
+								<ButtonAction  />
+								<ButtonAction  />
+							</div>
 						<Icon icon={open ? 'chevron-up' : 'chevron-down'} size={18} color={open ? 'white' : 'black'} />
 					</div>
 				</td>

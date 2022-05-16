@@ -51,7 +51,7 @@ const AddPositionPrice = ({ inputs, setInputs, addItem }) => {
                 <input placeholder="Цена за ед." value={inputs.price} onChange={(e) => setInputs({ ...inputs, price: e.target.value })} />
             </td>
             <td>
-                <button className={styles.addMore} onClick={() => addItem()}>+</button>
+                <button> добавить</button>
             </td>
         </tr>
     )

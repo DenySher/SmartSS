@@ -68,21 +68,6 @@ const Section = ({ num, section, deleteSection }) => {
 				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
 			))}
 
-			{/* <button onClick={() => setModalVisible({ ...modalVisible, sec2: !modalVisible.sec2 })}>Добавить подраздел</button> */}
-
-			{/* {modalVisible.sec2 ? (
-				<Modal>
-					<InputWithButton
-						placeholder='Добавить подраздел'
-						value={addValue}
-						setValue={setAddValue}
-						buttonText='Добавить'
-						onClick={() => onAddTask()}
-					/>
-				</Modal>
-			) : null} */}
-
-
 		</>
 	)
 }
