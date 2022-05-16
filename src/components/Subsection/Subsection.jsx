@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { apiAddToolsToSubsection, apiCreateTool } from '../../api/tools'
+import { apiAddToolsToSubsection, apiCreateTool, apiUpdateSection } from '../../api/tools'
 import AddPositionPrice from '../AddPositionPrice/AddPositionPrice'
 import SectionTool from '../SectionTool/SectionTool'
 import styles from './Section.module.scss'
 import Icon from '../Icon/Icon'
 import ButtonAction from '../Common/ButtonAction/ButtonAction'
 
-const Subsection = ({ num, subsection, section, idx, updateData }) => {
+const Subsection = ({ num, subsection, section, idx, updateData, deleteSubsection }) => {
 
 	const [open, setOpen] = useState(false)
 	const [addValue, setAddValue] = useState(
@@ -54,24 +54,39 @@ const Subsection = ({ num, subsection, section, idx, updateData }) => {
 		}
 	}
 
+	const deleteTool = (toolId) => {
+		let deleteTool = window.confirm('Удалить позицию?');
+		if (deleteTool) {
+			const newSectionsArr = [...section.sections]
+			newSectionsArr[idx].tools = [...section.sections[idx].tools].filter(t => t.id === toolId ? false : true)
+			apiUpdateSection(section.id, {
+				sections: newSectionsArr
+			}).then(res => {
+				updateData(res)
+			})
+		}
+	}
+
 	return (
 		<>
 			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
 				<td colSpan="1">{num}</td>
 				<td colSpan="5">
 					<div className={styles.nameSection}>
-						<h5>{subsection.name}</h5>
+						<div>
+							<h5>{subsection.name}</h5>
 							<div className={styles.actionButtons}>
-								<ButtonAction  />
-								<ButtonAction  />
+								<ButtonAction icon='pencil' onClick={() => alert('удалить?')} />
+								<ButtonAction icon='trash' onClick={() => deleteSubsection(subsection.id)} />
 							</div>
+						</div>
 						<Icon icon={open ? 'chevron-up' : 'chevron-down'} size={18} color={open ? 'white' : 'black'} />
 					</div>
 				</td>
 			</tr>
 			{open && <AddPositionPrice inputs={addValue} setInputs={setAddValue} addItem={addTool} />}
 			{open && subsection && subsection.tools && subsection.tools.map((tool, idx) => (
-				<SectionTool key={`tool${idx}`} num={`${num}.${idx + 1}`} tool={tool} />
+				<SectionTool key={`tool${idx}`} num={`${num}.${idx + 1}`} tool={tool} deleteTool={deleteTool} />
 			))}
 		</>
 	)

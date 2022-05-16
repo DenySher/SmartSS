@@ -102,3 +102,17 @@ export const apiDeleteSection = async (id) => {
 		console.log(error)
 	}
 }
+
+export const apiUpdateSection = async (id, newData) => {
+	try {
+		const config = {
+			method: 'put',
+			url: `${APIURL}/sections/${id}`,
+			data: newData
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}

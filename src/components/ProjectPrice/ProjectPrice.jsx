@@ -22,7 +22,8 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
     }
 
     const deleteSection = (id) => {
-        apiDeleteSection(id).then(res => {
+        let deleteSection = window.confirm('Удалить раздел?');
+        deleteSection && apiDeleteSection(id).then(res => {
             apiGetProject(projectID).then(r => {
                 updateData(r)
             })

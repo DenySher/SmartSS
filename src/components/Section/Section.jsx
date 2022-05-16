@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { apiCreateSubection } from '../../api/tools'
+import { apiCreateSubection, apiUpdateSection } from '../../api/tools'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import Subsection from '../Subsection/Subsection'
 import styles from './Section.module.scss'
@@ -36,6 +36,15 @@ const Section = ({ num, section, deleteSection }) => {
 		}
 	}
 
+	const deleteSubsection = (id) => {
+		let deleteSubsection = window.confirm('Удалить подраздел?');
+		deleteSubsection && apiUpdateSection(data.id, {
+			sections: [...data.sections].filter(s => s.id === id ? false : true)
+		}).then(res => {
+			setData(res)
+		})
+	}
+
 	return (
 		<>
 			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
@@ -65,7 +74,15 @@ const Section = ({ num, section, deleteSection }) => {
 				</td>
 			</tr>}
 			{open && data && data.sections && data.sections.map((section, idx) => (
-				<Subsection key={`subsection${idx}`} num={`${num}.${idx + 1}`} subsection={section} updateData={updateData} section={data} idx={idx} />
+				<Subsection
+					key={`subsection${idx}`}
+					num={`${num}.${idx + 1}`}
+					subsection={section}
+					updateData={updateData}
+					section={data}
+					idx={idx}
+					deleteSubsection={deleteSubsection}
+				/>
 			))}
 
 		</>
