@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { apiCreateSubection, apiUpdateSection } from '../../api/tools'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import Subsection from '../Subsection/Subsection'
+import SectionTitle from '../SectionTitle/SectionTitle'
 import styles from './Section.module.scss'
-import Icon from '../Icon/Icon'
-import ButtonAction from '../Common/ButtonAction/ButtonAction'
 
 const Section = ({ num, section, deleteSection }) => {
 
@@ -47,21 +46,14 @@ const Section = ({ num, section, deleteSection }) => {
 
 	return (
 		<>
-			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
-				<td colSpan="1">{num}</td>
-				<td colSpan="5">
-					<div className={styles.nameSection}>
-						<div>
-							<h4>{section.name}</h4>
-							<div className={styles.actionButtons}>
-								<ButtonAction icon='pencil' onClick={() => alert('удалить?')} />
-								<ButtonAction icon='trash' onClick={() => deleteSection(section.id)} />
-							</div>
-						</div>
-						<Icon icon={open ? 'chevron-up' : 'chevron-down'} size={18} color={open ? 'white' : 'black'} />
-					</div>
-				</td>
-			</tr>
+			<SectionTitle
+				num={num}
+				name={section.name}
+				open={open}
+				setOpen={setOpen}
+				id={section.id}
+				deleteFunction={deleteSection}
+			/>
 			{open && <tr>
 				<td colSpan="6" className={styles.inputWithBtn}>
 					<InputWithButton
@@ -84,7 +76,6 @@ const Section = ({ num, section, deleteSection }) => {
 					deleteSubsection={deleteSubsection}
 				/>
 			))}
-
 		</>
 	)
 }

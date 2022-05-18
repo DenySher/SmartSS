@@ -1,0 +1,43 @@
+@import '../../consts/vars.scss';
+
+.actionButtons {
+	display: none;
+	margin-left: 8px;
+	button {
+		margin-left: 8px;
+	}
+}
+.sectionTitle {
+	padding: 0%;
+
+	td {
+		text-align: center;
+		cursor: pointer;
+	}
+
+	&:hover {
+		.actionButtons {
+			display: flex;
+		}
+	}
+}
+
+.active {
+	background-color: $secondary-border-green !important;
+	color: white !important;
+}
+
+.small {
+	font-size: 0.8em;
+}
+
+.nameSection {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	& > div {
+		display: flex;
+		justify-content: space-between;
+		justify-items: center;
+	}
+}

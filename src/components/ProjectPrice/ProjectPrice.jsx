@@ -1,10 +1,9 @@
 import { useState } from 'react'
-
-import styles from "./ProjectPrice.module.scss"
 import Section from '../Section/Section'
 import InputWithButton from '../InputWithButton/InputWithButton'
 import { apiAddSectionToProject, apiCreateSection, apiDeleteSection } from '../../api/tools'
 import { apiGetProject } from '../../api/projects'
+import Table from '../Table/Table'
 
 const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
@@ -31,36 +30,22 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
     }
 
     return (
-        <>
-            <table className={styles.projectPriceTable}>
-                <thead className={styles.headerPrice}>
-                    <tr>
-                        <td>№</td>
-                        <td>Наименование</td>
-                        <td>Ед. изм.</td>
-                        <td>Кол-во</td>
-                        <td>Цена за ед.</td>
-                        <td>Всего</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colSpan="6" className={styles.inputWithBtn}>
-                            <InputWithButton
-                                placeholder='Добавить раздел'
-                                value={addValue}
-                                setValue={setAddValue}
-                                buttonText='Добавить'
-                                onClick={() => onAddTask()}
-                            />
-                        </td>
-                    </tr>
-                    {sections && sections.map((section, idx) => (
-                        <Section key={`section${idx}`} num={idx + 1} section={section} deleteSection={deleteSection} />
-                    ))}
-                </tbody>
-            </table>
-        </>
+        <Table columnsTitles={['№', 'Наименование', 'Ед. изм.', 'Кол-во', 'Цена за ед.', 'Всего']}>
+            <tr>
+                <td colSpan="6">
+                    <InputWithButton
+                        placeholder='Добавить раздел'
+                        value={addValue}
+                        setValue={setAddValue}
+                        buttonText='Добавить'
+                        onClick={() => onAddTask()}
+                    />
+                </td>
+            </tr>
+            {sections && sections.map((section, idx) => (
+                <Section key={`section${idx}`} num={idx + 1} section={section} deleteSection={deleteSection} />
+            ))}
+        </Table>
     )
 }
 

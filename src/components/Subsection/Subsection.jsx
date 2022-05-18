@@ -2,9 +2,7 @@ import { useState } from 'react'
 import { apiAddToolsToSubsection, apiCreateTool, apiUpdateSection } from '../../api/tools'
 import AddPositionPrice from '../AddPositionPrice/AddPositionPrice'
 import SectionTool from '../SectionTool/SectionTool'
-import styles from './Section.module.scss'
-import Icon from '../Icon/Icon'
-import ButtonAction from '../Common/ButtonAction/ButtonAction'
+import SectionTitle from '../SectionTitle/SectionTitle'
 
 const Subsection = ({ num, subsection, section, idx, updateData, deleteSubsection }) => {
 
@@ -69,21 +67,15 @@ const Subsection = ({ num, subsection, section, idx, updateData, deleteSubsectio
 
 	return (
 		<>
-			<tr className={[styles.childrenSection, open && styles.active].join(' ')} onClick={() => setOpen(!open)}>
-				<td colSpan="1">{num}</td>
-				<td colSpan="5">
-					<div className={styles.nameSection}>
-						<div>
-							<h5>{subsection.name}</h5>
-							<div className={styles.actionButtons}>
-								<ButtonAction icon='pencil' onClick={() => alert('удалить?')} />
-								<ButtonAction icon='trash' onClick={() => deleteSubsection(subsection.id)} />
-							</div>
-						</div>
-						<Icon icon={open ? 'chevron-up' : 'chevron-down'} size={18} color={open ? 'white' : 'black'} />
-					</div>
-				</td>
-			</tr>
+			<SectionTitle
+				num={num}
+				name={subsection.name}
+				open={open}
+				setOpen={setOpen}
+				id={subsection.id}
+				deleteFunction={deleteSubsection}
+				small
+			/>
 			{open && <AddPositionPrice inputs={addValue} setInputs={setAddValue} addItem={addTool} />}
 			{open && subsection && subsection.tools && subsection.tools.map((tool, idx) => (
 				<SectionTool key={`tool${idx}`} num={`${num}.${idx + 1}`} tool={tool} deleteTool={deleteTool} />

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { apiAddWorkerToProject } from '../../api/projects'
 import { apiCreateWorker, apiSearchWorkers } from '../../api/workers'
+import Table from '../Table/Table'
 import InputWithButton from '../InputWithButton/InputWithButton'
 
 const ProjectWorkers = ({ id, workers }) => {
@@ -44,39 +45,27 @@ const ProjectWorkers = ({ id, workers }) => {
 	}
 
 	return (
-		<table>
-			<thead>
-				<tr>
-					<td>№</td>
-					<td>ФИО</td>
+		<Table columnsTitles={['№', 'ФИО']}>
+			<tr>
+				<td colSpan={2}>
+					<InputWithButton
+						placeholder='ФИО рабочего'
+						value={input}
+						setValue={searchWorker}
+						buttonText='Добавить'
+						onClick={() => addWorker()}
+						suggestions={suggestions.data}
+						select={selectWorker}
+					/>
+				</td>
+			</tr>
+			{data.length && data.map((worker, idx) => (
+				<tr key={idx}>
+					<td>{idx + 1}</td>
+					<td>{worker.name}</td>
 				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-
-					</td>
-					<td>
-						<InputWithButton
-							placeholder='ФИО рабочего'
-							value={input}
-							setValue={searchWorker}
-							buttonText='Добавить'
-							onClick={() => addWorker()}
-							suggestions={suggestions.data}
-							select={selectWorker}
-						/>
-					</td>
-				</tr>
-				{data.length && data.map((worker, idx) => (
-					<tr key={idx}>
-						<td>{idx + 1}</td>
-						<td>{worker.name}</td>
-					</tr>
-				))}
-
-			</tbody>
-		</table>
+			))}
+		</Table>
 	)
 }
 
