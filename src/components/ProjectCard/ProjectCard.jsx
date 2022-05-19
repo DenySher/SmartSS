@@ -1,7 +1,7 @@
 import styles from './ProjectCard.module.scss'
 import { Link } from 'react-router-dom'
 
-const ProjectCard = ({item}) => {
+const ProjectCard = ({ item }) => {
 	return (
 	
 		<Link to={`/project/${item.id}`} className={styles.projectCard}>

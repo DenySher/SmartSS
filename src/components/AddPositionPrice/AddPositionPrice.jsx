@@ -5,6 +5,8 @@ import styles from './AddPositionPrice.module.scss'
 
 const AddPositionPrice = ({ inputs, setInputs, addItem }) => {
 
+    console.log(typeof addItem)
+
     const [suggestions, setSuggestions] = useState([]);
     const [newItem, setNewItem] = useState(false);
 
@@ -33,7 +35,10 @@ const AddPositionPrice = ({ inputs, setInputs, addItem }) => {
                 {suggestions.length ? (
                     <div className={styles.suggestions}>
                         {suggestions.map((item, i) => (
-                            <span className={styles.suggestion} key={i} onClick={() => { setInputs({ ...inputs, name: item.name, id: item.id }); setSuggestions([]) }}>{item.name}</span>
+                            <span className={styles.suggestion} key={i} 
+                                onClick={() => { setInputs({ ...inputs, name: item.name, id: item.id }); setSuggestions([]) }}>
+                                {item.name}
+                                </span>
                         ))}
                     </div>
                 ) : null}
@@ -51,7 +56,7 @@ const AddPositionPrice = ({ inputs, setInputs, addItem }) => {
                 <input placeholder="Цена за ед." value={inputs.price} onChange={(e) => setInputs({ ...inputs, price: e.target.value })} />
             </td>
             <td>
-                <button> добавить</button>
+                <button onClick={addItem}> добавить</button>
             </td>
         </tr>
     )

@@ -5,7 +5,7 @@ import ProjectWorkers from '../ProjectWorkers/ProjectWorkers'
 import styles from './ProjectDetails.module.scss'
 
 const ProjectDetails = ({ id }) => {
-
+ 
     const [data, setData] = useState(null)
     const [open, setOpen] = useState({
         sec1: false,
