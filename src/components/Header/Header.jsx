@@ -9,6 +9,7 @@ const Header = () => {
 		<header className={styles.header}>
 			<Link to='/'><img src={home} className={styles.homePage} /></Link>
 			<Link to='/create'><img src={create} className={styles.createProject} /></Link>
+			<Link to='/Performance'> Выполнение </Link>
 			<UserName />
 		</header>
 	)
