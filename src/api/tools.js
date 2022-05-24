@@ -116,3 +116,17 @@ export const apiUpdateSection = async (id, newData) => {
 		console.log(error)
 	}
 }
+
+export const apiUpdateProjects = async (id, newData) => {
+	try {
+		const config = {
+			method: 'put',
+			url: `${APIURL}/projects/${id}`,
+			data: newData
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
