@@ -4,6 +4,9 @@ import InputChange from '../InputChange/InputChange'
 const PerformanceWorks = () => {
     return (
         <div>
+            <div>
+                <button><span>монтажники</span></button>
+            </div>
             <div><span>ФИО монтажник</span></div>
             <table>
                 <thead>
@@ -23,8 +26,10 @@ const PerformanceWorks = () => {
                 <tbody>
                     <tr>
                         <td><span></span></td>
-                        <td colSpan={6} ><InputChange/>Добавить Раздел</td>
-                        <td><button>+</button></td>
+                        <td colSpan={6} ><input placeholder='Добавить раздел'/></td>
+                        <td className={styles.addBtn}>
+                            <button>+</button>
+                        </td>
                     </tr>
                     <tr>
                         <td><span></span></td>
@@ -32,27 +37,29 @@ const PerformanceWorks = () => {
                     </tr>
                     <tr>
                         <td><span></span></td>
-                        <td colSpan={6} ><InputChange/>Добавить подраздел</td>
-                        <td><button>+</button></td>
+                        <td colSpan={6} ><input placeholder='Добавить подраздел'/></td>
+                        <td className={styles.addBtn}>
+                            <button>+</button>
+                        </td>
                     </tr>
                     <tr>
                         <td><span></span></td>
                         <td colSpan={6} ><InputChange/>Оборудование</td>
                     </tr>
                     <tr>
-                        <td><input></input></td>
+                        <td><span></span></td>
                         <td><input placeholder='Добавить работы'></input></td>
                         <td><span></span></td>
                         <td><input placeholder='Ц. за 1'></input></td>
                         <td><input placeholder='кол-во'></input></td>
                         <td><span></span></td>
                         <td><input placeholder='локация'></input></td>
-                        <td>
+                        <td className={styles.addBtn}>
                             <button>+</button>
                         </td>
                     </tr>	
                     <tr>
-                        <td><input></input></td>
+                        <td><span></span></td>
                         <td><InputChange placeholder='Добавить работы'></InputChange></td>
                         <td><span></span></td>
                         <td><InputChange></InputChange></td>

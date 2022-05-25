@@ -39,7 +39,6 @@ const LoginForm = () => {
                 />
                 <Button className={styles.btnIn} text='Войти' onClick={startLogin} />
             </Form>
-            <PerformanceWorks />
         </div>
     )
 }
