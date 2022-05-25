@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Form from '../Form/Form'
+import PerformanceWorks from '../PerformanceWorks/PerformanceWorks'
 import styles from './LoginForm.module.scss'
 import { apiSignIn } from '../../api/users'
 import { useAppContext } from '../../contexts/AppContext'
@@ -38,6 +39,7 @@ const LoginForm = () => {
                 />
                 <Button className={styles.btnIn} text='Войти' onClick={startLogin} />
             </Form>
+            <PerformanceWorks />
         </div>
     )
 }
