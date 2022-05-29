@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Section from '../Section/Section'
 import InputWithButton from '../InputWithButton/InputWithButton'
-import { apiAddSectionToProject, apiCreateSection, apiDeleteSection } from '../../api/tools'
+import { apiCreateSection, apiDeleteSection } from '../../api/tools'
 import { apiGetProject } from '../../api/projects'
 import Table from '../Table/Table'
 
@@ -11,11 +11,10 @@ const SavePriceDetails = ({ sections, projectID, updateData }) => {
 
     const onAddTask = () => {
         if (addValue.length > 2) {
-            apiCreateSection(addValue).then((res) => {
-                apiAddSectionToProject([...sections, res.id], projectID).then((res) => {
-                    updateData(res)
-                    setAddValue('')
-                })
+            apiCreateSection(addValue, projectID).then((res) => {
+                console.log(res);
+                //updateData(res)
+                setAddValue('')
             })
         }
     }

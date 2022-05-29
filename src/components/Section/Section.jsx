@@ -9,9 +9,9 @@ const Section = ({ num, section, deleteSection }) => {
 
 	const [open, setOpen] = useState(false)
 	const [data, setData] = useState(section)
-
 	const [addValue, setAddValue] = useState('')
 
+	console.log(data);
 
 	const onAddTask = () => {
 		if (addValue.length > 2) {
@@ -65,16 +65,17 @@ const Section = ({ num, section, deleteSection }) => {
 					/>
 				</td>
 			</tr>}
-			{open && data && data.sections && data.sections.map((section, idx) => (
-				<Subsection
-					key={`subsection${idx}`}
-					num={`${num}.${idx + 1}`}
-					subsection={section}
-					updateData={updateData}
-					section={data}
-					idx={idx}
-					deleteSubsection={deleteSubsection}
-				/>
+			{open && data && data.subsections && data.subsections.map((subsection, idx) => (
+				<Section key={`subsection${idx}`} num={`${num}.${idx + 1}`} section={subsection} deleteSection={deleteSubsection} />
+				// <Subsection
+				// 	key={`subsection${idx}`}
+				// 	num={`${num}.${idx + 1}`}
+				// 	subsection={section}
+				// 	updateData={updateData}
+				// 	section={data}
+				// 	idx={idx}
+				// 	deleteSubsection={deleteSubsection}
+				// />
 			))}
 		</>
 	)

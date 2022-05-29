@@ -2,31 +2,30 @@ import { useState } from "react"
 
 const InputChange = () => {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('введите текст')
     const [edit, setEdit] = useState(false)
-    
+
 
     return (
         <div>
-            {!edit ?  (
+            {!edit && value ? (
                 <span onDoubleClick={() => setEdit(!edit)}>{value}</span>
             ) : (
-
-                <input 
-                type='text'
-                value={value} 
-                onChange={e => setValue(e.target.value)}
-                onKeyPress={(e) =>  {
-                    if (e.code === 'Enter') {
-                        setEdit(!edit)}
-                      }  
-                }
+                <input
+                    type='text'
+                    value={value}
+                    placeholder='введите текст'
+                    onChange={e => setValue(e.target.value)}
+                    onKeyPress={(e) => {
+                        if (e.code === 'Enter') {
+                            setEdit(!edit)
+                        }
+                    }
+                    }
                 />
             )}
-            
-            <buton onClick={() => setEdit(!edit)} >
-                {edit ? 'Сохранить' : 'Изменить'}
-            </buton> 
+
+            {edit && <buton onClick={() => setEdit(!edit)}>Сохранить</buton>}
         </div>
     )
 }

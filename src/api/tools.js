@@ -10,13 +10,14 @@ export const apiSearchTools = async (name) => {
 	}
 };
 
-export const apiCreateSection = async (name) => {
+export const apiCreateSection = async (name, projectID) => {
 	try {
 		const config = {
 			method: 'post',
 			url: `${APIURL}/sections`,
 			data: {
-				name
+				name,
+				projects: projectID
 			}
 		}
 		const res = await axios(config);
