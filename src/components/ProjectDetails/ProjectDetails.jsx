@@ -5,7 +5,7 @@ import ProjectWorkers from '../ProjectWorkers/ProjectWorkers'
 import styles from './ProjectDetails.module.scss'
 
 const ProjectDetails = ({ id }) => {
- 
+
     const [data, setData] = useState(null)
     const [open, setOpen] = useState({
         sec1: false,
@@ -16,7 +16,8 @@ const ProjectDetails = ({ id }) => {
     useEffect(() => {
         if (id) {
             apiGetProject(id).then((res) => {
-                setData(res)
+                console.log(res);
+                setData(res.data)
             })
         }
     }, [id])
@@ -34,10 +35,10 @@ const ProjectDetails = ({ id }) => {
                     <div className={styles.dataProjectName}>
                         <div className={styles.dataProjectName}>
                             <div>
-                                <h2>{data.name}</h2>
+                                <h2>{data.attributes.name}</h2>
                             </div>
                             <div>
-                                <h4>{data.address}</h4>
+                                <h4>{data.attributes.address}</h4>
                             </div>
                             {data.manager ? (
                                 <div>
@@ -53,7 +54,7 @@ const ProjectDetails = ({ id }) => {
                         </nav>
                     </div>
                     {open.sec1 ? (
-                        <ProjectPrice sections={data.sections} projectID={data.id} updateData={updateData} />
+                        <ProjectPrice sections={data.attributes.sections?.data} projectID={data.id} updateData={updateData} />
                     ) : null}
                     {open.sec3 ? (
                         <ProjectWorkers id={data.id} workers={data.workers} />

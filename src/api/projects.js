@@ -14,7 +14,7 @@ export const apiDeleteProject = async (id) => {
 	try {
 		const config = {
 			method: 'delete',
-			url: `${APIURL}/project/${id}`
+			url: `${APIURL}/projects/${id}`
 		}
 		const res = await axios(config);
 		return res.data;
@@ -25,7 +25,7 @@ export const apiDeleteProject = async (id) => {
 
 export const apiGetProject = async (id) => {
 	try {
-		const res = await axios.get(`${APIURL}/projects/${id}`);
+		const res = await axios.get(`${APIURL}/projects/${id}?populate[0]=sections&populate[1]=sections.subsections`);
 		return res.data;
 	} catch (error) {
 		console.log(error)
@@ -33,19 +33,20 @@ export const apiGetProject = async (id) => {
 };
 
 export const apiCreateProject = async (name, address, manager) => {
-	console.log(name)
-
 	try {
 		const config = {
 			method: 'post',
 			url: `${APIURL}/projects`,
 			data: {
-				name,
-				address,
-				manager
+				data: {
+					name,
+					address,
+					manager
+				}
 			}
 		}
 		const res = await axios(config);
+		console.log(res);
 		return res.data;
 	} catch (error) {
 		console.log(error)

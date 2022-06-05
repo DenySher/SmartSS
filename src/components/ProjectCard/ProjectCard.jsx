@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 const ProjectCard = ({ item, deleteProject }) => {
 
 	return (
-		
-		<Link to={`/project/${item.id}`} className={styles.projectCard}>
-			<button onClick={deleteProject}>Удалить</button>
-			<h2>{item.name}</h2>
-			<span>{item.address}</span>
-		</Link>
-		
+		<>
+			<Link to={`/project/${item.id}`} className={styles.projectCard}>
+
+				<h2>{item.attributes.name}</h2>
+				<span>{item.attributes.address}</span>
+			</Link>
+			<button onClick={() => deleteProject(item.id)}>Удалить</button>
+		</>
 	)
 }
 

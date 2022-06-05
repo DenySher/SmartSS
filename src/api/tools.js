@@ -16,8 +16,29 @@ export const apiCreateSection = async (name, projectID) => {
 			method: 'post',
 			url: `${APIURL}/sections`,
 			data: {
-				name,
-				projects: projectID
+				data: {
+					name,
+					projects: projectID
+				}
+			}
+		}
+		const res = await axios(config);
+		return res.data;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const apiCreateSubsection = async (name, sectionID) => {
+	try {
+		const config = {
+			method: 'post',
+			url: `${APIURL}/sections`,
+			data: {
+				data: {
+					name,
+					sections: sectionID
+				}
 			}
 		}
 		const res = await axios(config);
@@ -50,38 +71,6 @@ export const apiAddToolsToSubsection = async (sectionID, sections) => {
 			url: `${APIURL}/sections/${sectionID}`,
 			data: {
 				sections
-			}
-		}
-		const res = await axios(config);
-		return res.data;
-	} catch (error) {
-		console.log(error)
-	}
-}
-
-export const apiCreateSubection = async (sectionID, sections) => {
-	try {
-		const config = {
-			method: 'put',
-			url: `${APIURL}/sections/${sectionID}`,
-			data: {
-				sections
-			}
-		}
-		const res = await axios(config);
-		return res.data;
-	} catch (error) {
-		console.log(error)
-	}
-}
-
-export const apiAddSectionToProject = async (sections, project) => {
-	try {
-		const config = {
-			method: 'put',
-			url: `${APIURL}/projects/${project}`,
-			data: {
-				sections: sections
 			}
 		}
 		const res = await axios(config);

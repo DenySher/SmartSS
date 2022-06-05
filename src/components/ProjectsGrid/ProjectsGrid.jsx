@@ -3,12 +3,11 @@ import { apiGetProjects } from '../../api/projects'
 import ProjectCard from '../ProjectCard/ProjectCard'
 import styles from './ProjectsGrid.module.scss'
 import { apiDeleteProject } from '../../api/projects'
-import { apiGetProject } from '../../api/projects'
 
 const ProjectsGrid = () => {
 
-    const [data, setData] = useState([]);
-    
+    const [data, setData] = useState(null);
+
     useEffect(() => {
         apiGetProjects().then((res) => {
             setData(res);
@@ -18,22 +17,16 @@ const ProjectsGrid = () => {
     const deleteProject = (id) => {
         let deleteProject = window.confirm('Удалить раздел?');
         deleteProject && apiDeleteProject(id).then(res => {
-            apiGetProject(data.id).then(r => {
-                updateData(r)
+            apiGetProjects().then((r) => {
+                setData(r);
             })
         })
     }
 
-    const updateData = (newData) => {
-        if (newData) {
-            setData(newData)
-        }
-    }
-
     return (
         <div className={styles.works}>
-            {data.length > 0 && data.map((item, idx) => (
-                <ProjectCard key={`project${idx}`} item={item} deleteProject={deleteProject}/>
+            {data?.data && data.data.map((item, idx) => (
+                <ProjectCard key={`project${idx}`} item={item} deleteProject={deleteProject} />
             ))}
         </div>
     )
